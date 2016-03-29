@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>SPA</title>
+<!--<link rel="stylesheet" href="css/spa.css" />-->
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+/*var spa = function($){
+	var configMap = {
+		extended_height : 434,  //展开的高度
+		extended_title : "Click to retract", //展开时的title文字
+		retracted_height : 16,  //收起的高度
+		retracted_title : "Click to extend", //收起时的title文字
+		template_html : '<div class="spa-slider"></div>'
+	},
+	$chatSlider,
+	toggleSlider,onClickSlider,initModule;
+	
+	toggleSlider = function(){
+		var slider_height = $chatSlider.height();
+		//展开和收起聊天模块
+		if(slider_height === configMap.retracted_height){
+			$chatSlider
+				.animate({height: configMap.extended_height})
+				.attr('title',configMap.extend_title);
+			return true;
+		}else if(slider_height === configMap.extended_height){
+			$chatSlider
+				.animate({height: configMap.retracted_height})
+				.attr('title',configMap.retracted_title)
+			return true;
+		}
+		return false;
+	};
+	onClickSlider = function(event){
+		toggleSlider();
+		return false;
+	};
+	initModule = function($container){
+		$container.html(configMap.template_html);
+		$chatSlider = $container.find('.spa-slider');
+		$chatSlider
+			.attr('title',configMap.retracted_title)
+			.click(onClickSlider)
+		return true;
+	};
+	return {initModule:initModule};
+}(jQuery);
+jQuery(document).ready(function(){
+	spa.initModule(jQuery("#spa"));
+});*/
+
+var objectCreate = function(arg){
+	if(!arg){ return {}; }
+	function obj(){};
+	obj.prototype = arg;
+	return new obj;
+};
+Object.create = Object.create || objectCreate;
+
+var proto = {
+	sentence: 4,
+	probation: 2
+};
+var markPrisoner = function(name,id){
+	var prisoner = Object.create(proto);
+	prisoner.name = name;
+	prisoner.id = id;
+	return prisoner;
+};
+var firstPrisoner = markPrisoner('Joe','12A');
+var secondPrisoner = markPrisoner('Sam','2BC');
+console.log(firstPrisoner.name+" "+firstPrisoner.id+" "+firstPrisoner.sentence+" "+firstPrisoner.probation);
+console.log(secondPrisoner.name+" "+secondPrisoner.id+" "+secondPrisoner.sentence+" "+secondPrisoner.probation);
+</script>
+</head>
+<body>
+<!--<div id="spa"></div>-->
+
+</body>
+</html>
